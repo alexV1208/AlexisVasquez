@@ -1,218 +1,353 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Bodas de Plata | Ricardo & Leonor</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-<!-- HERO -->
-<header class="hero">
-
-    <div class="overlay"></div>
-
-    <img src="images/portada.jpg" class="hero-img">
-
-    <div class="hero-content">
-
-        <div class="rings">💍</div>
-
-        <h1>Ricardo & Leonor</h1>
-
-        <h2>Bodas de Plata</h2>
-
-        <p>11 de Octubre 2026</p>
-
-    </div>
-
-</header>
-
-<!-- MENSAJE -->
-
-<section class="mensaje fade">
-
-    <div class="floral">🌿🌹🌿</div>
-
-    <h2>Nuestro Mensaje</h2>
-
-    <p>
-        Hace veinticinco años comenzamos este camino juntos,
-        construyendo recuerdos, sueños y momentos inolvidables.
-
-        Hoy queremos compartir esta celebración con las personas
-        que han formado parte de nuestra historia.
-
-        Gracias por acompañarnos en este día tan especial.
-    </p>
-
-</section>
-
-<!-- CONTADOR -->
-
-<section class="contador fade">
-
-    <h2>Faltan</h2>
-
-    <div class="grid">
-
-        <div>
-            <span id="days">0</span>
-            <p>Días</p>
-        </div>
-
-        <div>
-            <span id="hours">0</span>
-            <p>Horas</p>
-        </div>
-
-        <div>
-            <span id="minutes">0</span>
-            <p>Minutos</p>
-        </div>
-
-        <div>
-            <span id="seconds">0</span>
-            <p>Segundos</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CEREMONIA -->
-
-<section class="evento fade">
-
-    <h2>Ceremonia Religiosa</h2>
-
-    <p>Zapote, Veracruz</p>
-
-    <a href="#" class="btn">
-        Ver ubicación
-    </a>
-
-</section>
-
-<!-- RECEPCIÓN -->
-
-<section class="evento fade">
-
-    <h2>Recepción</h2>
-
-    <p>Providencia, Veracruz</p>
-
-    <a href="#" class="btn">
-        Ver ubicación
-    </a>
-
-</section>
-
-<!-- GALERÍA -->
-
-<section class="galeria fade">
-
-    <h2>Nuestros Recuerdos</h2>
-
-    <div class="slider-container">
-
-        <button class="prev" onclick="moveSlide(-1)">
-            ❮
-        </button>
-
-        <div class="slider" id="slider">
-
-            <img src="images/foto1.jpg" class="slide">
-
-            <img src="images/foto2.jpg" class="slide">
-
-            <img src="images/foto3.jpg" class="slide">
-
-            <img src="images/foto4.jpg" class="slide">
-
-            <img src="images/foto5.jpg" class="slide">
-
-        </div>
-
-        <button class="next" onclick="moveSlide(1)">
-            ❯
-        </button>
-
-    </div>
-
-</section>
-
-<!-- CONFIRMACIÓN -->
-
-<section class="confirmacion fade">
-
-    <h2>Confirmar Asistencia</h2>
-
-    <p id="fechaLimiteTexto">
-        Confirmar antes del 26 de Septiembre de 2026
-    </p>
-
-    <form id="rsvpForm">
-
-        <input
-            id="nombre"
-            type="text"
-            placeholder="Nombre completo"
-            required
-        >
-
-        <input
-            id="asistentes"
-            type="number"
-            min="1"
-            placeholder="Número de asistentes"
-            required
-        >
-
-        <button type="submit">
-            Confirmar asistencia
-        </button>
-
-    </form>
-
-</section>
-
-<!-- MENSAJE -->
-
-<div id="popupMensaje" class="popup">
-
-    <div class="popup-card">
-
-        <div class="popup-ring">💍</div>
-
-        <h3 id="popupTexto"></h3>
-
-    </div>
-
-</div>
-
-<footer>
-
-    <h2>Ricardo & Leonor</h2>
-
-    <p>
-        Gracias por acompañarnos en esta celebración.
-    </p>
-
-</footer>
-
-<script>
-const WEBAPP_URL =
-"https://script.google.com/macros/s/AKfycbz4_xBfqLLfaNfDbUidtJXZSr64li1Rs6_3Yslvp0EqlARS-iPNb8iouhw9fqDbsYs/exec";
-</script>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fafafa;
+    color:#444;
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+}
+
+.hero-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.05);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:1;
+}
+
+.hero-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+    z-index:2;
+    width:90%;
+}
+
+.hero h1{
+    font-family:'Great Vibes',cursive;
+    font-size:5rem;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    font-size:2rem;
+    letter-spacing:3px;
+    color:#e6e6e6;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.rings{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+/* SECCIONES */
+
+section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+section h2{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    color:#9b111e;
+    margin-bottom:25px;
+}
+
+.mensaje{
+    background:white;
+}
+
+.mensaje p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.9;
+    font-size:1.1rem;
+}
+
+.floral{
+    font-size:1.5rem;
+    margin-bottom:20px;
+}
+
+/* CONTADOR */
+
+.contador{
+    background:#f2f2f2;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    max-width:800px;
+    margin:auto;
+}
+
+.grid div{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.grid span{
+    display:block;
+    font-size:3rem;
+    color:#9b111e;
+    font-weight:bold;
+}
+
+/* EVENTOS */
+
+.evento{
+    background:white;
+}
+
+.evento p{
+    margin-bottom:20px;
+    font-size:1.1rem;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 28px;
+    background:#9b111e;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    background:#7e0d18;
+}
+
+/* GALERIA */
+
+.galeria{
+    background:#f7f7f7;
+}
+
+.slider-container{
+    position:relative;
+    max-width:1000px;
+    margin:auto;
+    overflow:hidden;
+}
+
+.slider{
+    display:flex;
+    transition:transform .6s ease;
+}
+
+.slide{
+    min-width:100%;
+    height:550px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    border:none;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    cursor:pointer;
+    font-size:22px;
+    z-index:10;
+}
+
+.prev{
+    left:10px;
+}
+
+.next{
+    right:10px;
+}
+
+/* CONFIRMACION */
+
+.confirmacion{
+    background:white;
+}
+
+.confirmacion form{
+    max-width:500px;
+    margin:auto;
+}
+
+.confirmacion input{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:1rem;
+}
+
+.confirmacion button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#9b111e;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+.confirmacion button:hover{
+    background:#7e0d18;
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.45);
+    z-index:9999;
+}
+
+.popup-card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    max-width:420px;
+    width:90%;
+    text-align:center;
+    animation:popup .4s ease;
+}
+
+.popup-ring{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+#popupTexto{
+    line-height:1.7;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* FOOTER */
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+}
+
+footer h2{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+/* ANIMACIONES */
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:3.5rem;
+    }
+
+    .hero h2{
+        font-size:1.5rem;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .slide{
+        height:300px;
+    }
+
+    section h2{
+        font-size:2.4rem;
+    }
+}
+
+@media(max-width:480px){
+
+    .grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .grid span{
+        font-size:2rem;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .hero h2{
+        font-size:1.2rem;
+    }
+}
