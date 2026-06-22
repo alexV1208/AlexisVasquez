@@ -187,24 +187,12 @@ form.addEventListener("submit", async function(e) {
 
     try {
 
-        const response = await fetch(
-            WEBAPP_URL,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type":
-                    "application/json"
-                },
-                body: JSON.stringify({
-                    nombre: nombre,
-                    asistentes: asistentes
-                })
-            }
-        );
+ const response = await fetch(
+    `${WEBAPP_URL}?nombre=${encodeURIComponent(nombre)}&asistentes=${encodeURIComponent(asistentes)}`
+);
 
-        const data =
-            await response.json();
-
+const data = await response.json();
+   
         if (data.status === "ok") {
 
             showPopup(
