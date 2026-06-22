@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bodas de Plata | Ricardo & Leonor</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="overlay"></div>
+
+    <img src="images/portada.jpg" class="hero-img">
+
+    <div class="hero-content">
+
+        <div class="rings">💍</div>
+
+        <h1>Ricardo & Leonor</h1>
+
+        <h2>Bodas de Plata</h2>
+
+        <p>11 de Octubre 2026</p>
+
+    </div>
+
+</header>
+
+<!-- MENSAJE -->
+
+<section class="mensaje fade">
+
+    <div class="floral">🌿🌹🌿</div>
+
+    <h2>Nuestro Mensaje</h2>
+
+    <p>
+        Hace veinticinco años comenzamos este camino juntos,
+        construyendo recuerdos, sueños y momentos inolvidables.
+
+        Hoy queremos compartir esta celebración con las personas
+        que han formado parte de nuestra historia.
+
+        Gracias por acompañarnos en este día tan especial.
+    </p>
+
+</section>
+
+<!-- CONTADOR -->
+
+<section class="contador fade">
+
+    <h2>Faltan</h2>
+
+    <div class="grid">
+
+        <div>
+            <span id="days">0</span>
+            <p>Días</p>
+        </div>
+
+        <div>
+            <span id="hours">0</span>
+            <p>Horas</p>
+        </div>
+
+        <div>
+            <span id="minutes">0</span>
+            <p>Minutos</p>
+        </div>
+
+        <div>
+            <span id="seconds">0</span>
+            <p>Segundos</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CEREMONIA -->
+
+<section class="evento fade">
+
+    <h2>Ceremonia Religiosa</h2>
+
+    <p>Zapote, Veracruz</p>
+
+    <a href="#" class="btn">
+        Ver ubicación
+    </a>
+
+</section>
+
+<!-- RECEPCIÓN -->
+
+<section class="evento fade">
+
+    <h2>Recepción</h2>
+
+    <p>Providencia, Veracruz</p>
+
+    <a href="#" class="btn">
+        Ver ubicación
+    </a>
+
+</section>
+
+<!-- GALERÍA -->
+
+<section class="galeria fade">
+
+    <h2>Nuestros Recuerdos</h2>
+
+    <div class="slider-container">
+
+        <button class="prev" onclick="moveSlide(-1)">
+            ❮
+        </button>
+
+        <div class="slider" id="slider">
+
+            <img src="images/foto1.jpg" class="slide">
+
+            <img src="images/foto2.jpg" class="slide">
+
+            <img src="images/foto3.jpg" class="slide">
+
+            <img src="images/foto4.jpg" class="slide">
+
+            <img src="images/foto5.jpg" class="slide">
+
+        </div>
+
+        <button class="next" onclick="moveSlide(1)">
+            ❯
+        </button>
+
+    </div>
+
+</section>
+
+<!-- CONFIRMACIÓN -->
+
+<section class="confirmacion fade">
+
+    <h2>Confirmar Asistencia</h2>
+
+    <p id="fechaLimiteTexto">
+        Confirmar antes del 26 de Septiembre de 2026
+    </p>
+
+    <form id="rsvpForm">
+
+        <input
+            id="nombre"
+            type="text"
+            placeholder="Nombre completo"
+            required
+        >
+
+        <input
+            id="asistentes"
+            type="number"
+            min="1"
+            placeholder="Número de asistentes"
+            required
+        >
+
+        <button type="submit">
+            Confirmar asistencia
+        </button>
+
+    </form>
+
+</section>
+
+<!-- MENSAJE -->
+
+<div id="popupMensaje" class="popup">
+
+    <div class="popup-card">
+
+        <div class="popup-ring">💍</div>
+
+        <h3 id="popupTexto"></h3>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <h2>Ricardo & Leonor</h2>
+
+    <p>
+        Gracias por acompañarnos en esta celebración.
+    </p>
+
+</footer>
+
+<script>
+const WEBAPP_URL =
+"https://script.google.com/macros/s/AKfycbz4_xBfqLLfaNfDbUidtJXZSr64li1Rs6_3Yslvp0EqlARS-iPNb8iouhw9fqDbsYs/exec";
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
